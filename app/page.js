@@ -3,7 +3,7 @@ import Footer from '@/components/UI/Footer'
 import HeroSection from '@/components/homepage/HeroSection'
 import AboutSection from '@/components/homepage/AboutSection'
 import CategoriesSection from '@/components/homepage/CategoriesSection'
-import PartnerSitesSection from '@/components/homepage/PartnerSitesSection'
+import SpecializedSitesSection from '@/components/homepage/SpecializedSitesSection'
 import AuthorizedBrandsSection from '@/components/homepage/AuthorizedBrandsSection'
 import CTASection from '@/components/homepage/CTASection'
 
@@ -15,7 +15,7 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <CategoriesSection />
-        <PartnerSitesSection />
+        <SpecializedSitesSection />
         <AuthorizedBrandsSection />
         <CTASection />
       </main>
