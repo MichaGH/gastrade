@@ -8,7 +8,7 @@ const CATEGORY_IMAGES = {
   '/produkty/bezpecnostne-armatury': '/images/categories/bezpecnostne_armatury0.jpg',
   '/produkty/tlakomery': '/images/categories/tlakomery0.jpg',
   '/produkty/teplomery': '/images/categories/teplomery0.jpg',
-  '/produkty/plynove-filtre': '/images/categories/filtre_plynove0.jpg',
+  '/produkty/plynove-filtre': '/images/categories/plynove_filtre0.jpg',
   '/produkty/vodomery': '/images/categories/vodomery0.jpg',
   '/produkty/monitorovacie-zariadenia': '/images/categories/monitorovacie_zariadenia0.jpg',
   '/produkty/predohrev-plynu': '/images/categories/predohrev_plynu0.jpg',

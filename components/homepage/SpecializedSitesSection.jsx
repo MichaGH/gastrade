@@ -41,19 +41,22 @@ const PARTNERS = [
 
 export default function SpecializedSitesSection() {
   return (
-    <section className="bg-bg py-24 lg:py-16">
+    <section className="bg-bg py-24 lg:py-28">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-16">
 
         {/* Header */}
         <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-[30px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[36px]">
-            Špecializované weby
-            <br className="hidden sm:block" /> pre vybrané sortimenty produktov
-          </h2>
-          <p className="text-[14px] leading-[1.55] text-ink-400 sm:max-w-[260px] sm:text-right">
-            Pre vybrané sortimenty prevádzkujeme samostatné špecializované weby
-            s detailnejšou ponukou.
-          </p>
+          <div>
+            <div className="font-[family-name:var(--font-ibm-plex-mono)] text-[12px] font-medium uppercase tracking-[0.08em] text-brand">
+              Partnerské stránky
+            </div>
+            <h2 className="mt-4 text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[36px]">
+              Špecializované weby pre<br className="hidden sm:block" /> vybrané sortimenty.
+            </h2>
+          </div>
+          <div className="text-[14px] leading-[1.6] text-ink-400 sm:max-w-[240px] sm:text-right">
+            Pre vybrané sortimenty prevádzkujeme samostatné weby s detailnejšou ponukou.
+          </div>
         </div>
 
         {/* Grid */}
@@ -64,35 +67,34 @@ export default function SpecializedSitesSection() {
               href={`https://${partner.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mx-auto flex w-full max-w-[340px] flex-col items-center gap-5 bg-white border border-line p-6 text-center transition-all hover:border-brand/25 hover:shadow-[0_6px_24px_rgba(13,59,120,0.08)] sm:max-w-none"
+              className="group flex flex-col overflow-hidden border border-line bg-white transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_12px_32px_rgba(14,27,46,0.1)]"
             >
-              {/* Logo — dominant, white bg */}
-              <div className="flex h-[120px] w-full items-center justify-center rounded-[4px]  px-6">
+              {/* Logo area */}
+              <div className="flex h-[100px] items-center border-b border-line px-6">
                 <Image
                   src={partner.logo}
                   alt={partner.url}
-                  width={240}
-                  height={96}
-                  className="max-h-[88px] w-auto object-contain"
+                  width={200}
+                  height={60}
+                  className="max-h-[52px] w-auto object-contain"
                 />
               </div>
 
-              {/* URL */}
-              <span className="block font-[family-name:var(--font-ibm-plex-mono)] text-[13px] font-medium text-brand">
-                {partner.url}
-              </span>
+              {/* Content */}
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <div className="text-[13px] leading-[1.6] text-ink-500">
+                  {partner.desc}
+                </div>
 
-              {/* Description */}
-              <p className="flex-1 text-[14px] leading-[1.6] text-ink-500">{partner.desc}</p>
-
-              {/* Tag + arrow */}
-              <div className="flex w-full items-center justify-center gap-2">
-                <span className="rounded-[3px] border border-line px-2 py-0.5 font-[family-name:var(--font-ibm-plex-mono)] text-[10px] uppercase tracking-[0.08em] text-ink-400">
-                  {partner.tag}
-                </span>
-                <span className="text-[13px] text-ink-300 transition-all group-hover:translate-x-0.5 group-hover:text-brand">
-                  →
-                </span>
+                {/* Footer row */}
+                <div className="mt-auto flex items-center justify-end gap-3 border-t border-line pt-4">
+                  {/* <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[10px] uppercase tracking-[0.07em] text-ink-400">
+                    {partner.tag}
+                  </span> */}
+                  <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[12px] font-medium text-brand transition-all group-hover:translate-x-0.5">
+                    {partner.url} →
+                  </span>
+                </div>
               </div>
             </a>
           ))}

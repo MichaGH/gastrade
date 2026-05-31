@@ -7,7 +7,7 @@ const CATEGORIES = [
   { name: 'Bezpečnostné armatúry',      href: '/produkty/bezpecnostne-armatury',       img: '/images/categories/bezpecnostne_armatury0.jpg' },
   { name: 'Tlakomery',                  href: '/produkty/tlakomery',                   img: '/images/categories/tlakomery0.jpg' },
   { name: 'Teplomery',                  href: '/produkty/teplomery',                   img: '/images/categories/teplomery0.jpg' },
-  { name: 'Plynové filtre',             href: '/produkty/plynove-filtre',               img: '/images/categories/filtre_plynove0.jpg' },
+  { name: 'Plynové filtre',             href: '/produkty/plynove-filtre',               img: '/images/categories/plynove-filtre0.jpg' },
   { name: 'Vodomery',                   href: '/produkty/vodomery',                    img: '/images/categories/vodomery0.jpg' },
   { name: 'Monitorovacie zariadenia',   href: '/produkty/monitorovacie-zariadenia',    img: '/images/categories/monitorovacie_zariadenia0.jpg' },
   { name: 'Predohrev plynu',            href: '/produkty/predohrev-plynu',             img: '/images/categories/predohrev_plynu0.jpg' },
