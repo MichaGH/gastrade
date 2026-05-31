@@ -54,10 +54,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top info bar — dark */}
-      <div className="hidden border-b border-white/[0.06] bg-ink-900 lg:block">
+      {/* Top info bar — light */}
+      <div className="hidden border-b border-line bg-bg lg:block">
         <div className="mx-auto flex h-9 max-w-[1280px] items-center justify-between px-16">
-          <div className="flex items-center gap-6 text-[12px] text-white/55">
+          <div className="flex items-center gap-6 text-[12px] text-ink-400">
             <span className="inline-flex items-center gap-1.5">
               <svg className="h-3 w-3 fill-none stroke-current" strokeWidth={1.5} viewBox="0 0 24 24">
                 <circle cx="12" cy="10" r="3" />
@@ -67,9 +67,9 @@ export default function Navbar() {
             </span>
             <span>Po–Pi · 8:00–16:30</span>
           </div>
-          <div className="flex items-center gap-5 font-[family-name:var(--font-ibm-plex-mono)] text-[11.5px] tracking-[0.02em] text-white/55">
+          <div className="flex items-center gap-5 font-[family-name:var(--font-ibm-plex-mono)] text-[11.5px] tracking-[0.02em] text-ink-400">
             <span>+421 2 4488 1234</span>
-            <a href="mailto:info@gastrade.sk" className="transition-colors hover:text-white">info@gastrade.sk</a>
+            <a href="mailto:info@gastrade.sk" className="hover:text-ink-900 transition-colors">info@gastrade.sk</a>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="group relative inline-flex items-center gap-1.5 py-8 text-[13.5px] font-medium text-white"
+                      className="inline-flex items-center gap-1.5 py-8 text-[13.5px] font-medium text-white/60 transition-colors hover:text-white"
                     >
                       {link.label}
                       <svg
@@ -109,13 +109,6 @@ export default function Navbar() {
                       >
                         <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      {/* Underline — scales from right to left on hover */}
-                      <span
-                        className={[
-                          'absolute bottom-5 left-0 right-0 h-[2px] origin-right scale-x-0 rounded-full bg-white transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100',
-                          megaOpen ? 'origin-left scale-x-100' : '',
-                        ].join(' ')}
-                      />
                     </Link>
                   </div>
                 )
@@ -124,11 +117,14 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group relative py-8 text-[13.5px] font-medium text-white"
+                  className={[
+                    'relative py-8 text-[13.5px] font-medium transition-colors',
+                    link.active
+                      ? 'text-white after:absolute after:bottom-[-1px] after:left-0 after:right-0 after:h-[2px] after:bg-brand after:content-[""]'
+                      : 'text-white/60 hover:text-white',
+                  ].join(' ')}
                 >
                   {link.label}
-                  {/* Underline — scales from right to left on hover */}
-                  <span className="absolute bottom-7 left-0 right-0 h-[2px] origin-right scale-x-0 rounded-full bg-white transition-transform duration-300 ease-out group-hover:origin-left group-hover:scale-x-100" />
                 </Link>
               )
             })}
@@ -137,7 +133,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="/kontakt"
-            className="hidden h-9 items-center gap-2 rounded-[4px] border border-white/30 px-5 text-[13px] font-medium text-white transition-all hover:border-white hover:bg-white/10 lg:inline-flex"
+            className="hidden h-9 items-center gap-2 rounded-[4px] border border-white/[0.18] px-5 text-[13px] font-medium text-white/80 transition-all hover:border-white/35 hover:text-white lg:inline-flex"
           >
             Cenová ponuka
           </Link>
@@ -166,16 +162,34 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.15, ease: 'easeOut' }}
-              className="absolute left-0 right-0 top-full hidden border-b border-line bg-white shadow-[0_20px_60px_-8px_rgba(10,22,40,0.16)] lg:block "
+              className="absolute left-0 right-0 top-full hidden border-b border-line bg-white shadow-[0_20px_60px_-8px_rgba(10,22,40,0.16)] lg:block"
               onMouseEnter={handleMegaEnter}
               onMouseLeave={handleMegaLeave}
             >
               <div className="mx-auto flex max-w-[1280px] px-16">
                 {/* Left panel */}
-       
+                <div className="flex w-[200px] shrink-0 flex-col justify-between border-r border-line py-7 pr-8">
+                  <div>
+                    <span className="font-[family-name:var(--font-ibm-plex-mono)] text-[10px] font-medium uppercase tracking-[0.14em] text-brand">
+                      16 kategórií
+                    </span>
+                    <h3 className="mt-3 text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-900">
+                      Meranie a regulácia plynu.
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-[1.6] text-ink-500">
+                      Kompletný sortiment pre plynárenstvo, energetiku a priemysel.
+                    </p>
+                  </div>
+                  <Link
+                    href="/produkty"
+                    className="mt-6 inline-flex h-9 items-center justify-center rounded-[4px] bg-brand px-4 text-[13px] font-semibold text-white transition-colors hover:bg-brand-2"
+                  >
+                    Všetky produkty →
+                  </Link>
+                </div>
 
                 {/* Categories — 4 columns */}
-                <div className="flex flex-1 border-x border-line">
+                <div className="flex flex-1">
                   {[0, 1, 2, 3].map((col) => (
                     <div
                       key={col}
@@ -220,10 +234,10 @@ export default function Navbar() {
             <div className="px-5 py-5 sm:px-8">
               {/* Contact info */}
               <div className="rounded-[6px] border border-white/[0.08] bg-white/[0.04] p-4">
-                <p className="text-[13px] leading-[1.55] text-white/60">
+                <p className="text-[13px] leading-[1.55] text-white/40">
                   Pluhová 2, 831 03 Bratislava<br />Po–Pi · 8:00–16:30
                 </p>
-                <div className="mt-3 flex flex-col gap-1 font-[family-name:var(--font-ibm-plex-mono)] text-[12px] text-white/70">
+                <div className="mt-3 flex flex-col gap-1 font-[family-name:var(--font-ibm-plex-mono)] text-[12px] text-white/55">
                   <span>+421 2 4488 1234</span>
                   <span>info@gastrade.sk</span>
                 </div>
@@ -241,7 +255,7 @@ export default function Navbar() {
                         >
                           {link.label}
                           <svg
-                            className={['h-4 w-4 text-white/60 transition-transform', mobileProductsOpen ? 'rotate-180' : ''].join(' ')}
+                            className={['h-4 w-4 text-white/40 transition-transform', mobileProductsOpen ? 'rotate-180' : ''].join(' ')}
                             viewBox="0 0 20 20" fill="none"
                           >
                             <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -269,7 +283,7 @@ export default function Navbar() {
                                     key={cat.href}
                                     href={cat.href}
                                     onClick={closeMobile}
-                                    className="rounded-[5px] border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[14px] font-medium text-white/80 transition-colors hover:bg-white/[0.08] hover:text-white"
+                                    className="rounded-[5px] border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-[14px] font-medium text-white/70 transition-colors hover:bg-white/[0.08] hover:text-white"
                                   >
                                     {cat.name}
                                   </Link>
@@ -286,7 +300,10 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={closeMobile}
-                      className="border-b border-white/[0.08] py-4 text-[17px] font-semibold text-white transition-colors"
+                      className={[
+                        'border-b border-white/[0.08] py-4 text-[17px] font-semibold transition-colors',
+                        link.active ? 'text-white' : 'text-white/65 hover:text-white',
+                      ].join(' ')}
                     >
                       {link.label}
                     </Link>

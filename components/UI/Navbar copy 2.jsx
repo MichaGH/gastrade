@@ -166,16 +166,32 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.15, ease: 'easeOut' }}
-              className="absolute left-0 right-0 top-full hidden border-b border-line bg-white shadow-[0_20px_60px_-8px_rgba(10,22,40,0.16)] lg:block "
+              className="absolute left-0 right-0 top-full hidden border-b border-line bg-white shadow-[0_20px_60px_-8px_rgba(10,22,40,0.16)] lg:block"
               onMouseEnter={handleMegaEnter}
               onMouseLeave={handleMegaLeave}
             >
               <div className="mx-auto flex max-w-[1280px] px-16">
                 {/* Left panel */}
-       
+                <div className="flex w-[200px] shrink-0 flex-col justify-between border-r border-line py-7 pr-8">
+                  <div>
+                    
+                    <h3 className="mt-3 text-[18px] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-900">
+                      Meranie a regulácia plynu.
+                    </h3>
+                    <p className="mt-2 text-[13px] leading-[1.6] text-ink-500">
+                      Kompletný sortiment pre plynárenstvo, energetiku a priemysel.
+                    </p>
+                  </div>
+                  <Link
+                    href="/produkty"
+                    className="mt-6 inline-flex h-9 items-center justify-center rounded-[4px] bg-brand px-4 text-[13px] font-semibold text-white transition-colors hover:bg-brand-2"
+                  >
+                    Všetky produkty →
+                  </Link>
+                </div>
 
                 {/* Categories — 4 columns */}
-                <div className="flex flex-1 border-x border-line">
+                <div className="flex flex-1">
                   {[0, 1, 2, 3].map((col) => (
                     <div
                       key={col}

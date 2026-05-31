@@ -1,54 +1,64 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink-900: #0A1628;
-  --color-ink-700: #1D3150;
-  --color-ink-500: #4A6178;
-  --color-ink-400: #7892A8;
-  --color-ink-300: #AABECE;
-  --color-line: #D8E2EC;
-  --color-line-2: #EBF0F6;
-  --color-bg: #F4F7FA;
-  --color-bg-tint: #EAF0F7;
-  --color-card: #FFFFFF;
-  --color-brand: #0C306E;
-  --color-brand-2: #08204E;
-  --color-brand-soft: #D4E4F8;
-  --color-brand-tint: #EBF3FC;
-  --color-accent: #C8861C;
-  --color-accent-soft: #FEF3DC;
-  --color-footer-bg: #07101C;
-  --color-footer-text: #94AABB;
-  --color-footer-muted: #4A6070;
-  --color-footer-body: #6A8090;
+    --color-ink-900: #0a1628;
+    --color-ink-700: #1d3150;
+    --color-ink-500: #4a6178;
+    --color-ink-400: #7892a8;
+    --color-ink-300: #aabece;
+    --color-line: #d8e2ec;
+    --color-line-2: #ebf0f6;
+    --color-bg: #f4f7fa;
+    --color-bg-tint: #eaf0f7;
+    --color-card: #ffffff;
 
-  --font-display: var(--font-ibm-plex-sans);
+    /* --- jasnejšia korporátna modrá --- */
+    --color-brand: #1a56c4; /* bola #0C306E — teraz svetlejšia, sebavedomá */
+    --color-brand-2: #1245a3; /* hover/darší tón */
+    --color-brand-soft: #c7dcfb; /* underline / jemné plochy */
+    --color-brand-tint: #eef4ff; /* najjemnejšie pozadia */
+
+    --color-accent: #c8861c;
+    --color-accent-soft: #fef3dc;
+    --color-footer-bg: #07101c;
+    --color-footer-text: #94aabb;
+    --color-footer-muted: #4a6070;
+    --color-footer-body: #6a8090;
+
+    --font-inter: var(--font-inter);
+    /*   --font-display: var(--font-ibm-plex-sans);
   --font-body: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-ibm-plex-mono);
+  --font-mono: var(--font-ibm-plex-mono); */
+    --animate-marquee: marquee 40s linear infinite;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--ibm-plex-sans) !important;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink-900);
 }
-
-h1, h2, h3, h4 {
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--color-ink-900);
-}
-
-p { margin: 0; }
 
 img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }

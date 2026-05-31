@@ -2,12 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const CATEGORIES = [
-  { name: 'Plynomery',                  href: '/produkty/plynomery',                  img: '/images/categories/plynomery0.jpg' },
+  { name: 'Plynomery',                  href: '/produkty/plynomery',                   img: '/images/categories/plynomery0.jpg' },
   { name: 'Regulátory tlaku plynu',     href: '/produkty/regulatory-tlaku-plynu',      img: '/images/categories/regulatory_tlaku_plynu0.jpg' },
   { name: 'Bezpečnostné armatúry',      href: '/produkty/bezpecnostne-armatury',       img: '/images/categories/bezpecnostne_armatury0.jpg' },
   { name: 'Tlakomery',                  href: '/produkty/tlakomery',                   img: '/images/categories/tlakomery0.jpg' },
   { name: 'Teplomery',                  href: '/produkty/teplomery',                   img: '/images/categories/teplomery0.jpg' },
-  { name: 'Plynové filtre',             href: '/produkty/plynove-filtre',               img: '/images/categories/filtre_plynove0.jpg' },
+  { name: 'Plynové filtre',             href: '/produkty/plynove-filtre',              img: '/images/categories/filtre_plynove0.jpg' },
   { name: 'Vodomery',                   href: '/produkty/vodomery',                    img: '/images/categories/vodomery0.jpg' },
   { name: 'Monitorovacie zariadenia',   href: '/produkty/monitorovacie-zariadenia',    img: '/images/categories/monitorovacie_zariadenia0.jpg' },
   { name: 'Predohrev plynu',            href: '/produkty/predohrev-plynu',             img: '/images/categories/predohrev_plynu0.jpg' },
@@ -24,7 +24,7 @@ export default function CategoriesSection() {
   return (
     <section
       id="categories"
-      className="relative overflow-hidden bg-white pt-10 pb-10"
+      className="relative overflow-hidden bg-white pt-10 pb-[120px]"
     >
       {/* --- Background: subtle diagonal brand slab --- */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
@@ -44,14 +44,18 @@ export default function CategoriesSection() {
 
       <div className="relative z-[2] mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-16">
         {/* Header */}
-        <div className="mb-12 flex flex-col  justify-center items-center text-center gap-4">
-            <div className="font-[family-name:var(--font-ibm-plex-mono)] text-base font-medium uppercase tracking-[0.08em] text-brand">
+        <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="font-[family-name:var(--font-ibm-plex-mono)] text-[12px] font-medium uppercase tracking-[0.08em] text-brand">
               Produktové kategórie
             </div>
-            <h2 className=" max-w-[500px] text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[40px]">
-               Kompletný katalóg pre plynárenstvo, vodárenstvo a&nbsp;priemysel.
+            <h2 className="mt-3 max-w-[600px] text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[40px]">
+              16 produktových skupín pre meranie, reguláciu a&nbsp;bezpečnosť.
             </h2>
- 
+          </div>
+          <p className="text-[14px] text-ink-500 sm:max-w-[280px] sm:text-right">
+            Kompletný katalóg pre plynárenstvo, vodárenstvo a&nbsp;priemysel.
+          </p>
         </div>
 
         {/* Grid */}
@@ -60,11 +64,11 @@ export default function CategoriesSection() {
             <Link
               key={cat.href}
               href={cat.href}
-              className="group relative flex flex-col overflow-hidden  border border-line bg-card shadow-[0_1px_3px_rgba(14,27,46,0.06)] transition-all duration-200 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_12px_30px_rgba(14,27,46,0.18)]"
+              className="group relative flex flex-col overflow-hidden rounded-[8px] border border-line bg-card shadow-[0_1px_3px_rgba(14,27,46,0.06)] transition-all duration-200 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_12px_30px_rgba(14,27,46,0.18)]"
             >
-          {/*     <span className="absolute left-3 top-3 z-10 font-[family-name:var(--font-ibm-plex-mono)] text-[11px] tabular-nums text-ink-300 transition-colors group-hover:text-brand">
+              <span className="absolute left-3 top-3 z-10 font-[family-name:var(--font-ibm-plex-mono)] text-[11px] tabular-nums text-ink-300 transition-colors group-hover:text-brand">
                 {String(i + 1).padStart(2, '0')}
-              </span> */}
+              </span>
 
               <div className="relative aspect-square overflow-hidden">
                 <Image
@@ -85,16 +89,6 @@ export default function CategoriesSection() {
               </div>
             </Link>
           ))}
-        </div>
-        {/* All products CTA */}
-        <div className="mt-12 flex justify-center">
-          <Link
-            href="/produkty"
-            className="group inline-flex h-12 items-center justify-center gap-2 rounded-[4px] bg-brand px-7 text-[14px] font-semibold text-white transition-colors hover:bg-brand-2"
-          >
-            Všetky produkty
-            <span className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
-          </Link>
         </div>
       </div>
     </section>

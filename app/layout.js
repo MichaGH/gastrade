@@ -1,5 +1,7 @@
-import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
+import { IBM_Plex_Sans, IBM_Plex_Mono, Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from '@/components/UI/Navbar'
+import Footer from '@/components/UI/Footer'
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin', 'latin-ext'],
@@ -15,6 +17,13 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: 'swap',
 })
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
 export const metadata = {
   title: 'GAS Trade — Meracia a regulačná technika',
   description:
@@ -23,9 +32,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="sk" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
+    <html lang="sk" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${inter.variable}`}>
       <body className="font-[family-name:var(--font-ibm-plex-sans)] text-ink-900 bg-card text-base leading-normal">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
